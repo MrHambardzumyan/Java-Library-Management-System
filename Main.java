@@ -201,17 +201,3 @@ class Library {
             return this.returnDate;
         }
     }
-
-    // TODO(INCOMPLETE)
-    class Reservation {
-        Date reservationDate;
-
-        Reservation() {
-            this.reservationDate = new Date();
-        }
-
-        void createReservation() {
-            // TODO
-        }
-    }
-}
