@@ -1,18 +1,39 @@
-## Getting Started
+# Library Management System
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A simple Java/Swing application backed by SQLite for managing a library.  
+Features:
+- **Login/Registration** with SHA-256 password hashing
+- **Admin interface**: search/add books, view book list, add/delete users
+- **Member interface**: search/borrow/return books, view book list, pay fines
+- **Bulk CSV import** of books (Title,Author,ISBN)
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+## Prerequisites
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+1. **Java Development Kit** (JDK 8 or later)  
+   Available at https://adoptopenjdk.net/ or https://jdk.java.net/
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+2. **SQLite JDBC driver** JAR  
+   Download e.g. `sqlite-jdbc-3.49.1.0.jar` from  
+   https://github.com/xerial/sqlite-jdbc/releases  
+   Place it in your project’s `lib/` folder.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+##To run code
+Compile all src code by running in terminal:
+
+mkdir bin
+javac -cp "lib\sqlite-jdbc-3.49.1.0.jar" -d bin `
+src\com\library\dao\DatabaseManager.java `
+src\com\library\model\*.java `
+src\com\library\service\*.java `
+src\com\library\ui\*.java `
+src\com\library\util\ImportCsv.java
+
+
+Run <Main> in LoginFrame.java or use command:
+java -cp "bin:lib/sqlite-jdbc-3.49.1.0.jar" com.library.ui.LoginFrame
+
+-replace : with ; for windows users
